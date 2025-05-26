@@ -1,6 +1,6 @@
 /*
- * Progammer: Conall Lorentz
- * Dates: May 16-21
+ * Progammer: Conall Lorentz, Charles Damian
+ * Dates: May 26-X
 */
 
 public class Model {
