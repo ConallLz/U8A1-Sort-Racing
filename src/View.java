@@ -78,7 +78,7 @@ public class View extends JFrame {
 
         add(Box.createRigidArea(new Dimension(0, spacing)));
 
-        JTextArea display = new JTextArea(20, 1);
+        JTextArea display = new JTextArea(15, 1);
         display.setEditable(false);
         add(display);
 
