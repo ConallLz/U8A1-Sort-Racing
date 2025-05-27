@@ -10,6 +10,12 @@ import java.awt.Font;
 import javax.swing.*;
 
 public class View extends JFrame {
+    public JSlider arrayLength;
+    public JSlider arrayMinimum;
+    public JSlider arrayMaximum;
+    public JButton generateArray;
+    public JButton startRace;
+
     public View() {
         super();
 
@@ -29,7 +35,7 @@ public class View extends JFrame {
         JLabel arrayLengthTitle = new JLabel("Array Length");
         add(arrayLengthTitle);
 
-        JSlider arrayLength = new JSlider(JSlider.HORIZONTAL, 0, 100000, 50000);
+        arrayLength = new JSlider(JSlider.HORIZONTAL, 0, 100000, 50000);
         arrayLength.setMajorTickSpacing(25000);
         arrayLength.setMinorTickSpacing(10000);
         arrayLength.setPaintTicks(true);
@@ -41,7 +47,7 @@ public class View extends JFrame {
         JLabel arrayMinimumTitle = new JLabel("Array Minimum");
         add(arrayMinimumTitle);
 
-        JSlider arrayMinimum = new JSlider(JSlider.HORIZONTAL, -200, 200, -200);
+        arrayMinimum = new JSlider(JSlider.HORIZONTAL, -200, 200, -200);
         arrayMinimum.setMajorTickSpacing(100);
         arrayMinimum.setMinorTickSpacing(10);
         arrayMinimum.setPaintTicks(true);
@@ -53,7 +59,7 @@ public class View extends JFrame {
         JLabel arrayMaximumTitle = new JLabel("Array Maximum");
         add(arrayMaximumTitle);
 
-        JSlider arrayMaximum = new JSlider(JSlider.HORIZONTAL, -200, 200, 200);
+        arrayMaximum = new JSlider(JSlider.HORIZONTAL, -200, 200, 200);
         arrayMaximum.setMajorTickSpacing(100);
         arrayMaximum.setMinorTickSpacing(10);
         arrayMaximum.setPaintTicks(true);
@@ -62,12 +68,12 @@ public class View extends JFrame {
 
         add(Box.createRigidArea(new Dimension(0, spacing)));
 
-        JButton generateArray = new JButton("Generate Array");
+        generateArray = new JButton("Generate Array");
         add(generateArray);
 
         add(Box.createRigidArea(new Dimension(0, spacing)));
 
-        JButton startRace = new JButton("Start Sort Race");
+        startRace = new JButton("Start Sort Race");
         add(startRace);
 
         add(Box.createRigidArea(new Dimension(0, spacing)));
