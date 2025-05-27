@@ -10,9 +10,9 @@ import javax.swing.text.View;
 
 public class Model{
 
-    int[] initArr;
+    static int[] initArr;
 
-    void generateArray(int length, int min, int max){
+    static void generateArray(int length, int min, int max){
         initArr = new int[length];
         Random r = new Random();
         for(int i = 0; i < length; i++){
@@ -29,7 +29,7 @@ public class Model{
         //long bTime = bubbleSort(testArr), sTime = 0, iTime = 0;
     }
 
-    long bubbleSort(int[] testArr){
+    static long bubbleSort(int[] testArr){
         int[] storeArr = testArr;
         int n = storeArr.length;
         boolean swapped = false;
@@ -54,7 +54,7 @@ public class Model{
         return tTime;
     }
 
-    long selectionSort(int[] testArr){
+    static long selectionSort(int[] testArr){
         int[] storeArr = testArr;
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
@@ -77,8 +77,9 @@ public class Model{
     }
 
     int[] insertionSort(int[] testArr){
+        int[] storeArr = testArr;
+        int n = storeArr.length;
         long currentTime = System.currentTimeMillis();
-        int[] storeArr = new int[100];
         return storeArr;
     }
 
@@ -89,12 +90,15 @@ public class Model{
     }
 
     public static void main(String args[]) {
-        /*int[] testArr = {5, 3, 6, 4, 1};
-        int[] finalArr = selectionSort(testArr);
-        for (int i : finalArr) {
+        int[] testArr = {5, 3, 6, 4, 1};
+        generateArray(50000, -200, 200);
+        System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
+        System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
+        //int[] finalArr = selectionSort(testArr);
+        /*for (int i : finalArr) {
             System.out.print(i);
-        }
-        System.out.println();*/
+        }*/
+        System.out.println();
         System.out.println("hello from model");
     }
 }
