@@ -21,7 +21,8 @@ public class Model{
         }
     }
 
-    long[] startRace(){
+    long[] startRace(int length, int min, int max){
+        generateArray(length, min, max);
         if (initArr == null) { return null; }
         
         return new long[] {
