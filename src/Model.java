@@ -30,7 +30,7 @@ public class Model{
     }
 
     static long bubbleSort(int[] testArr){
-        int[] storeArr = testArr;
+        int[] storeArr = testArr.clone();
         int n = storeArr.length;
         boolean swapped = false;
         long beginTime = System.currentTimeMillis();
@@ -55,7 +55,7 @@ public class Model{
     }
 
     static long selectionSort(int[] testArr){
-        int[] storeArr = testArr;
+        int[] storeArr = testArr.clone();
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
 
@@ -77,7 +77,7 @@ public class Model{
     }
 
     static long insertionSort(int[] testArr){
-        int[] storeArr = testArr;
+        int[] storeArr = testArr.clone();
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
         for(int i = 1; i < n; ++i){
@@ -102,28 +102,19 @@ public class Model{
     }
 
     public static void main(String args[]) {
-        /*try{
-            new Thread(() -> {
-                System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
-            }).start();
+        int[] gg = {5, 1, 4, 3, 11, 25, 2, 13};
+        
+        insertionSort(gg);
 
-            new Thread(() -> {
-                System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
-            }).start();
-
-            new Thread(() -> {
-                System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
-            }).start();
-
-        }catch(Exception e){
-            System.err.println(e);
-        }*/
-
+        generateArray(100000, -200, 200);
 
         System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
-        System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
         System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
+        System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
 
+        for (int i : gg) {
+            System.out.print(i + ", ");
+        }
         System.out.println();
         System.out.println("hello from model");
     }
