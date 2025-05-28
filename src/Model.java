@@ -10,9 +10,9 @@ import javax.swing.text.View;
 
 public class Model{
 
-    static int[] initArr;
+    int[] initArr;
 
-    static void generateArray(int length, int min, int max){
+    void generateArray(int length, int min, int max){
         initArr = new int[length];
         Random r = new Random();
         for(int i = 0; i < length; i++){
@@ -21,15 +21,17 @@ public class Model{
         }
     }
 
-    void startRace(){
-        getTimes(initArr);
-    }
-    
-    void getTimes(int[] testArr){
-        //long bTime = bubbleSort(testArr), sTime = 0, iTime = 0;
+    long[] startRace(){
+        if (initArr == null) { return null; }
+        
+        return new long[] {
+            bubbleSort(initArr), 
+            selectionSort(initArr), 
+            insertionSort(initArr)
+        };
     }
 
-    static long bubbleSort(int[] testArr){
+    long bubbleSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
         boolean swapped = false;
@@ -54,7 +56,7 @@ public class Model{
         return tTime;
     }
 
-    static long selectionSort(int[] testArr){
+    long selectionSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
@@ -76,7 +78,7 @@ public class Model{
         return tTime;
     }
 
-    static long insertionSort(int[] testArr){
+    long insertionSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
@@ -99,23 +101,5 @@ public class Model{
         long currentTime = System.currentTimeMillis();
         int[] storeArr = new int[100];
         return storeArr;
-    }
-
-    public static void main(String args[]) {
-        int[] gg = {5, 1, 4, 3, 11, 25, 2, 13};
-        
-        insertionSort(gg);
-
-        generateArray(100000, -200, 200);
-
-        System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
-        System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
-        System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
-
-        for (int i : gg) {
-            System.out.print(i + ", ");
-        }
-        System.out.println();
-        System.out.println("hello from model");
     }
 }
