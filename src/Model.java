@@ -76,11 +76,23 @@ public class Model{
         return tTime;
     }
 
-    int[] insertionSort(int[] testArr){
+    static long insertionSort(int[] testArr){
         int[] storeArr = testArr;
         int n = storeArr.length;
-        long currentTime = System.currentTimeMillis();
-        return storeArr;
+        long beginTime = System.currentTimeMillis();
+        for(int i = 1; i < n; ++i){
+            int key = storeArr[i];
+            int j = i - 1;
+
+            while(j >= 0 && storeArr[j] > key){
+                storeArr[j+1] = storeArr[j];
+                j = j - 1;
+            }
+            storeArr[j + 1] = key;
+        }
+        long endTime = System.currentTimeMillis();
+        long tTime = endTime - beginTime;
+        return tTime;
     }
 
     int[] quickSort(int[] testArr){
@@ -90,14 +102,28 @@ public class Model{
     }
 
     public static void main(String args[]) {
-        int[] testArr = {5, 3, 6, 4, 1};
-        generateArray(50000, -200, 200);
+        /*try{
+            new Thread(() -> {
+                System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
+            }).start();
+
+            new Thread(() -> {
+                System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
+            }).start();
+
+            new Thread(() -> {
+                System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
+            }).start();
+
+        }catch(Exception e){
+            System.err.println(e);
+        }*/
+
+
         System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
         System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
-        //int[] finalArr = selectionSort(testArr);
-        /*for (int i : finalArr) {
-            System.out.print(i);
-        }*/
+        System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
+
         System.out.println();
         System.out.println("hello from model");
     }
