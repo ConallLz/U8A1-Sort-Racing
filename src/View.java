@@ -13,7 +13,6 @@ public class View extends JFrame {
     public JSlider arrayLength;
     public JSlider arrayMinimum;
     public JSlider arrayMaximum;
-    public JButton generateArray;
     public JButton startRace;
 
     public View() {
@@ -65,11 +64,6 @@ public class View extends JFrame {
         arrayMaximum.setPaintTicks(true);
         arrayMaximum.setPaintLabels(true);
         add(arrayMaximum);
-
-        add(Box.createRigidArea(new Dimension(0, spacing)));
-
-        generateArray = new JButton("Generate Array");
-        add(generateArray);
 
         add(Box.createRigidArea(new Dimension(0, spacing)));
 
