@@ -57,14 +57,18 @@ public class Controller {
         v.generateArray.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                m.generateArray(length, min, max);
             }
         });
 
         v.startRace.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                long[] results = m.startRace();
+
+                for (int i = 0; i < results.length; i++) {
+                    System.out.println(results[i]);
+                }
             }
         });
     }    

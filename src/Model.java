@@ -10,9 +10,9 @@ import javax.swing.text.View;
 
 public class Model{
 
-    static int[] initArr;
+    int[] initArr;
 
-    static void generateArray(int length, int min, int max){
+    void generateArray(int length, int min, int max){
         initArr = new int[length];
         Random r = new Random();
         for(int i = 0; i < length; i++){
@@ -21,16 +21,18 @@ public class Model{
         }
     }
 
-    void startRace(){
-        getTimes(initArr);
-    }
-    
-    void getTimes(int[] testArr){
-        //long bTime = bubbleSort(testArr), sTime = 0, iTime = 0;
+    long[] startRace(){
+        if (initArr == null) { return null; }
+        
+        return new long[] {
+            bubbleSort(initArr), 
+            selectionSort(initArr), 
+            insertionSort(initArr)
+        };
     }
 
-    static long bubbleSort(int[] testArr){
-        int[] storeArr = testArr;
+    long bubbleSort(int[] testArr){
+        int[] storeArr = testArr.clone();
         int n = storeArr.length;
         boolean swapped = false;
         long beginTime = System.currentTimeMillis();
@@ -54,8 +56,8 @@ public class Model{
         return tTime;
     }
 
-    static long selectionSort(int[] testArr){
-        int[] storeArr = testArr;
+    long selectionSort(int[] testArr){
+        int[] storeArr = testArr.clone();
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
 
@@ -76,8 +78,8 @@ public class Model{
         return tTime;
     }
 
-    static long insertionSort(int[] testArr){
-        int[] storeArr = testArr;
+    long insertionSort(int[] testArr){
+        int[] storeArr = testArr.clone();
         int n = storeArr.length;
         long beginTime = System.currentTimeMillis();
         for(int i = 1; i < n; ++i){
@@ -99,32 +101,5 @@ public class Model{
         long currentTime = System.currentTimeMillis();
         int[] storeArr = new int[100];
         return storeArr;
-    }
-
-    public static void main(String args[]) {
-        /*try{
-            new Thread(() -> {
-                System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
-            }).start();
-
-            new Thread(() -> {
-                System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
-            }).start();
-
-            new Thread(() -> {
-                System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
-            }).start();
-
-        }catch(Exception e){
-            System.err.println(e);
-        }*/
-
-
-        System.out.println("BUBBLE SORT TIME: " + bubbleSort(initArr));
-        System.out.println("SELECTION SORT TIME: " + selectionSort(initArr));
-        System.out.println("INSERTION SORT TIME: " + insertionSort(initArr));
-
-        System.out.println();
-        System.out.println("hello from model");
     }
 }
