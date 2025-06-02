@@ -57,10 +57,15 @@ public class Controller {
         v.startRace.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                v.display.setText("");
                 long[] results = m.startRace(length, min, max);
+                System.out.println();
+                String[] algos = {"Bubble Sort", "Selection Sort", "Insertion Sort"};
 
                 for (int i = 0; i < results.length; i++) {
-                    System.out.println(results[i]);
+                    System.out.println(algos[i] + " " + results[i]);
+                    v.display.append(algos[i] +": " +  Long.toString(results[i]) + "\n");
                 }
             }
         });

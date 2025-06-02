@@ -5,9 +5,6 @@
 
 import java.util.Random;
 
-import javax.swing.SwingUtilities;
-import javax.swing.text.View;
-
 public class Model{
 
     int[] initArr;
@@ -34,7 +31,7 @@ public class Model{
     long bubbleSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
-        boolean swapped = false;
+        boolean swapped;
         long beginTime = System.currentTimeMillis();
         for(int i = 0; i < n - 1; i++){
             swapped = false;
