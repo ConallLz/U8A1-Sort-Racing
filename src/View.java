@@ -14,6 +14,7 @@ public class View extends JFrame {
     public JSlider arrayMinimum;
     public JSlider arrayMaximum;
     public JButton startRace;
+    public JTextArea display;
 
     public View() {
         super();
@@ -82,7 +83,6 @@ public class View extends JFrame {
                 ((JComponent) c).setAlignmentX(Component.CENTER_ALIGNMENT);
             }
         }
-
         
         pack();
         setResizable(false);
