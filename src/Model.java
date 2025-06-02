@@ -24,7 +24,8 @@ public class Model{
         return new long[] {
             bubbleSort(initArr), 
             selectionSort(initArr), 
-            insertionSort(initArr)
+            insertionSort(initArr),
+            startQuickSort(initArr)
         };
     }
 
@@ -94,9 +95,51 @@ public class Model{
         return tTime;
     }
 
-    int[] quickSort(int[] testArr){
-        long currentTime = System.currentTimeMillis();
-        int[] storeArr = new int[100];
-        return storeArr;
+    void swap(int[] array, int a, int b) {
+        int temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
+    }
+
+    int partition(int[] array, int low, int high) {
+        int pivot = array[low];
+        int left = low - 1;
+        int right = high + 1;
+
+        while (true) {
+            do {
+                left++;
+            } while (array[left] < pivot);
+    
+            do {
+                right--;
+            } while (array[right] > pivot);
+    
+            if (left >= right) {
+                return right;
+            }
+
+            swap(array, left, right);
+        }
+    }
+
+    void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(array, low, high);
+            quickSort(array, low, pivotIndex);
+            quickSort(array, pivotIndex + 1, high);
+        }
+    }
+
+    long startQuickSort(int[] testArr) {
+        int[] storeArr = testArr.clone();
+
+        long beginTime = System.currentTimeMillis();
+        
+        quickSort(storeArr, 0, storeArr.length - 1);
+
+        long endTime = System.currentTimeMillis();
+        long tTime = endTime - beginTime;
+        return tTime;
     }
 }
