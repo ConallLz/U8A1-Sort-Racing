@@ -61,7 +61,7 @@ public class Controller {
                 v.display.setText("");
                 long[] results = m.startRace(length, min, max);
                 System.out.println();
-                String[] algos = {"Bubble Sort", "Selection Sort", "Insertion Sort"};
+                String[] algos = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort"};
 
                 for (int i = 0; i < results.length; i++) {
                     System.out.println(algos[i] + " " + results[i]);

@@ -14,7 +14,7 @@ public class Model{
         Random r = new Random();
         for(int i = 0; i < length; i++){
             int low = min, high = max;
-            initArr[i] = r.nextInt(high - low) + low;
+            initArr[i] = r.nextInt(high - low + 1) + low;
         }
     }
 
@@ -33,7 +33,7 @@ public class Model{
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
         boolean swapped;
-        long beginTime = System.currentTimeMillis();
+        long beginTime = System.nanoTime();
         for(int i = 0; i < n - 1; i++){
             swapped = false;
             for(int j = 0; j < n - i - 1; j++){
@@ -44,11 +44,11 @@ public class Model{
                     swapped = true;
                 }
             }
-            if(swapped = false){
+            if(swapped == false){
                 break;
             }
         }
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
 
         long tTime = endTime - beginTime;
         return tTime;
@@ -57,7 +57,7 @@ public class Model{
     long selectionSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
-        long beginTime = System.currentTimeMillis();
+        long beginTime = System.nanoTime();
 
         for(int i = 0; i < n-1; i++){
             int min = i;
@@ -71,7 +71,7 @@ public class Model{
             storeArr[min] = temp;
         }
 
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         long tTime = endTime - beginTime;
         return tTime;
     }
@@ -79,7 +79,7 @@ public class Model{
     long insertionSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
-        long beginTime = System.currentTimeMillis();
+        long beginTime = System.nanoTime();
         for(int i = 1; i < n; ++i){
             int key = storeArr[i];
             int j = i - 1;
@@ -90,7 +90,7 @@ public class Model{
             }
             storeArr[j + 1] = key;
         }
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         long tTime = endTime - beginTime;
         return tTime;
     }
@@ -134,11 +134,11 @@ public class Model{
     long startQuickSort(int[] testArr) {
         int[] storeArr = testArr.clone();
 
-        long beginTime = System.currentTimeMillis();
+        long beginTime = System.nanoTime();
         
         quickSort(storeArr, 0, storeArr.length - 1);
 
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         long tTime = endTime - beginTime;
         return tTime;
     }
