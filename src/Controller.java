@@ -65,7 +65,7 @@ public class Controller {
 
                 for (int i = 0; i < results.length; i++) {
                     System.out.println(algos[i] + " " + results[i]);
-                    v.display.append(algos[i] +": " +  Long.toString(results[i]) + "\n");
+                    v.display.append(algos[i] +": " +  String.valueOf((double) results[i] / 1000000) + "\n");
                 }
             }
         });
