@@ -1,12 +1,10 @@
 /*
  * Progammer: Conall Lorentz, Charles Damian
- * Dates: May 26-X
+ * Dates: May 26 - June 3
 */
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
