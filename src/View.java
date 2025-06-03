@@ -1,6 +1,6 @@
 /*
  * Progammer: Conall Lorentz, Charles Damian
- * Dates: May 26-X
+ * Dates: May 26 - June 3
 */
 
 import java.awt.Component;
