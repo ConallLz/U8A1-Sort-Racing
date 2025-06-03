@@ -21,7 +21,7 @@ public class Controller {
         v.arrayLength.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                length = v.arrayLength.getValue();
+                length = v.arrayLength.getValue(); // 
             }
         });
 
