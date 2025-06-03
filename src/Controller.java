@@ -58,13 +58,12 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 v.display.setText("");
                 v.display.append("Racing algorithms...\n");
-                v.display.append("Parameters: " + Long.toString(length) + ", " + Long.toString(min) + ", " + Long.toString(max));
+                v.display.append("Parameters: " + Long.toString(length) + ", " + Long.toString(min) + ", " + Long.toString(max) + "\n\n");
 
                 new Thread(() -> {
                     long[] results = m.startRace(length, min, max);
                     String[] algos = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort"};
 
-                    v.display.setText("");
                     for (int i = 0; i < results.length; i++) {
                         v.display.append(algos[i] +": " +  String.valueOf((double) results[i] / 1000000) + " ms\n");
                     }
