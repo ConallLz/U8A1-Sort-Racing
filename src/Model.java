@@ -95,6 +95,11 @@ public class Model{
         return tTime;
     }
 
+    /**
+     * insertion sort algorithm put into code
+     * @param testArr
+     * @return
+     */
     long insertionSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
@@ -148,9 +153,10 @@ public class Model{
     }
 
     /**
+     * 
      * @param array - The array to sort
-     * @param low
-     * @param high
+     * @param low the lower value
+     * @param high the higher value
      */
     void quickSort(int[] array, int low, int high) {
         if (low < high) {
