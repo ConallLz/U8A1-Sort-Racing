@@ -77,38 +77,39 @@ public class Model{
         int n = storeArr.length;
         long beginTime = System.nanoTime();
 
-        for(int i = 0; i < n-1; i++){
-            int min = i;
-            for(int j = i+1; j < n; j++){
+        for(int i = 0; i < n-1; i++){//loops from zero to the length - 1
+            int min = i;//sets the minimum to the current index
+            for(int j = i+1; j < n; j++){//it loops from the next index to the length of the array, if any value at the indexes up till that point is the minimum, minimum becomes that index
                 if(storeArr[j] < storeArr[min]){
                     min = j;
                 }
             }
+            //it then swaps the current index with the index at the minimum
             int temp = storeArr[i];
             storeArr[i] = storeArr[min];
             storeArr[min] = temp;
         }
 
         long endTime = System.nanoTime();
-        long tTime = endTime - beginTime;
+        long tTime = endTime - beginTime;//gets the endtime and returns the difference
         return tTime;
     }
 
     long insertionSort(int[] testArr){
         int[] storeArr = testArr.clone();
         int n = storeArr.length;
-        long beginTime = System.nanoTime();
-        for(int i = 1; i < n; ++i){
-            int key = storeArr[i];
-            int j = i - 1;
+        long beginTime = System.nanoTime();//it gets the time it begins the algorithm
+        for(int i = 1; i < n; ++i){//it loops from the next value of the array up to the length of the array
+            int key = storeArr[i];//the key becomes the current index
+            int j = i - 1;//gets the value of 
 
-            while(j >= 0 && storeArr[j] > key){
+            while(j >= 0 && storeArr[j] > key){//it loops from the all the values of the array before the key and switches them to correct order 
                 storeArr[j+1] = storeArr[j];
                 j = j - 1;
             }
             storeArr[j + 1] = key;
         }
-        long endTime = System.nanoTime();
+        long endTime = System.nanoTime();//it gets the endtime and returns the difference between the start and endtime
         long tTime = endTime - beginTime;
         return tTime;
     }
