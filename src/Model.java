@@ -125,38 +125,48 @@ public class Model{
         array[b] = temp; // Set the second value to the first (temp)
     }
 
+    // Partitions the array into two parts based on the pivot value
+    // Values less than the pivot are moved to the left of the pivot,
+    // and values greater than the pivot are moved to the right
+    /**
+     * @param array - The array to partition
+     * @param low - The starting index of the array
+     * @param high - The ending index of the array
+     * @return - The index where the pivot ends up after partitioning
+     */
     int partition(int[] array, int low, int high) {
-        int pivot = array[low];
-        int left = low - 1;
-        int right = high + 1;
+        int pivot = array[low]; // Choose the pivot as the first element of the array
+        int left = low - 1; // Left pointer is just before the start
+        int right = high + 1; // Right pointer is just after the end
 
         while (true) {
             do {
-                left++;
-            } while (array[left] < pivot);
-    
+                left++; // Move left pointer to the right
+            } while (array[left] < pivot); // Continue moving until finding an element greater or equal to pivot
+
             do {
-                right--;
-            } while (array[right] > pivot);
-    
+                right--; // Move right pointer to the left
+            } while (array[right] > pivot); // Continue moving until finding an element less or equal to pivot
+
             if (left >= right) {
-                return right;
+                return right; // Return the partition point
             }
 
-            swap(array, left, right);
+            swap(array, left, right); // Swap the two values
         }
     }
 
     /**
      * @param array - The array to sort
-     * @param low
-     * @param high
+     * @param low - The starting index of the current array
+     * @param high - The ending index of the current array
      */
     void quickSort(int[] array, int low, int high) {
         if (low < high) {
-            int pivotIndex = partition(array, low, high);
-            quickSort(array, low, pivotIndex);
-            quickSort(array, pivotIndex + 1, high);
+            int pivotIndex = partition(array, low, high); // Partition the array and get the pivot index
+
+            quickSort(array, low, pivotIndex); // Recursively sort the left array (elements less than or equal to pivot)
+            quickSort(array, pivotIndex + 1, high); // Recursively sort the right array (elements greater than pivot)
         }
     }
 
