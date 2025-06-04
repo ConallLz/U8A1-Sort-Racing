@@ -114,10 +114,15 @@ public class Model{
         return tTime;
     }
 
+    /**
+     * @param array - The array containing the values which will be swapped
+     * @param a - The index of the first value which will be swapped
+     * @param b - The index of the second value which will be swapped
+     */
     void swap(int[] array, int a, int b) {
-        int temp = array[a];
-        array[a] = array[b];
-        array[b] = temp;
+        int temp = array[a]; // Create a temporary variable to hold the first value
+        array[a] = array[b]; // Set the first value to the second
+        array[b] = temp; // Set the second value to the first (temp)
     }
 
     int partition(int[] array, int low, int high) {
@@ -142,6 +147,11 @@ public class Model{
         }
     }
 
+    /**
+     * @param array - The array to sort
+     * @param low
+     * @param high
+     */
     void quickSort(int[] array, int low, int high) {
         if (low < high) {
             int pivotIndex = partition(array, low, high);
@@ -150,15 +160,20 @@ public class Model{
         }
     }
 
+    // Quick sort is split up like this because it is recursive
+    /**
+     * @param testArr - The array to sort
+     * @return - The time it took for the algorithm to finish sorting the array
+     */
     long startQuickSort(int[] testArr) {
-        int[] storeArr = testArr.clone();
+        int[] storeArr = testArr.clone(); // A clone of the array to sort. We do not want to use the array given because the other algorithms are given the same one.
 
-        long beginTime = System.nanoTime();
+        long beginTime = System.nanoTime(); // The time in nano seconds when starting, more precise than System.currentTimeMillis()
         
-        quickSort(storeArr, 0, storeArr.length - 1);
+        quickSort(storeArr, 0, storeArr.length - 1); // Call the quick sort method on the array
 
-        long endTime = System.nanoTime();
-        long tTime = endTime - beginTime;
-        return tTime;
+        long endTime = System.nanoTime(); // The time when ending
+        long tTime = endTime - beginTime; // The difference between the two times (time it took for the algorithm to complete)
+        return tTime; // Return the time
     }
 }
