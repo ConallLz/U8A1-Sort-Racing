@@ -120,7 +120,7 @@ public class Model{
     }
 
     /**
-     * @param array - The array containing the values which will be swapped
+     * @param array - The array containing the values which will swap
      * @param a - The index of the first value which will be swapped
      * @param b - The index of the second value which will be swapped
      */
